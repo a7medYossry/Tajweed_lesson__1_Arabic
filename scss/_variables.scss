@@ -1,0 +1,28 @@
+// Fonts
+$font-main: 'Cairo', sans-serif;
+
+// Breakpoints for responsive design
+$bp-large: 75em; // 1200px
+$bp-medium: 62.5em; // 1000px
+$bp-small: 50em; // 800px
+$bp-tiny: 37.5em; // 600px
+
+
+// CSS Variables for Theming
+// This is the modern way to handle light/dark modes
+:root {
+    // Light Theme
+    --primary-color: #007BFF;
+    --primary-color-dark: #0056b3;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --navbar-bg: rgba(255, 255, 255, 0.85);
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --border-color: #dee2e6;
+    --hero-overlay: rgba(0, 0, 0, 0.5);
+
+    // Transitions
+    --transition-speed: 0.3s;
+}

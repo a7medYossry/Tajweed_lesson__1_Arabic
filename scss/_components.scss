@@ -1,0 +1,143 @@
+// Navbar Component
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: background-color var(--transition-speed) ease;
+    border-bottom: 1px solid transparent; // Start transparent
+    transition: border-color var(--transition-speed) ease;
+
+    body.scrolled & { // Style when scrolled
+        border-bottom-color: var(--border-color);
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    &__nav ul {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        margin: 0;
+        padding: 0;
+
+        @media(max-width: $bp-small) {
+           display: none; // Hide on small screens for simplicity
+        }
+    }
+
+    &__nav a {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 0.5rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width var(--transition-speed) ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+// Theme Toggle Button
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    position: relative;
+    width: 2.2rem;
+    height: 2.2rem;
+
+    .fa-sun, .fa-moon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .fa-sun {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .fa-moon {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.dark-mode .theme-toggle {
+    .fa-sun {
+        transform: scale(0);
+        opacity: 0;
+    }
+    .fa-moon {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Card Component
+.card {
+    background-color: var(--card-bg);
+    padding: 4rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 4rem;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+
+    @media (max-width: $bp-small) {
+        padding: 2.5rem;
+    }
+}
+
+// Section Image Component
+.section-img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 3rem auto 0;
+    filter: grayscale(30%);
+    opacity: 0.8;
+    transition: all var(--transition-speed) ease;
+
+    &:hover {
+        filter: grayscale(0);
+        opacity: 1;
+        transform: scale(1.03);
+    }
+    
+    &.rounded {
+        border-radius: 8px;
+    }
+
+    @media (max-width: $bp-small) {
+        max-width: 80%;
+    }
+}
